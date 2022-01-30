@@ -6,10 +6,7 @@ const App = () => {
   const [header, setHeader] = useState<string>('Hello David!');
 
   const changeNameToJohn = () => {
-    mySelf.name = "John";
-    mySelf.age = 30;
-    console.log(mySelf);
-    setMySelf(mySelf);
+    setMySelf({ ...mySelf, name: 'John' });
   }
   const constructTheNameChangeMessage = useCallback(() => {
     if (mySelf) {
