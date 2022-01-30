@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [mySelf, setMySelf] = useState<{ name: string, age: number }>({ name: 'David', age: 30 });
+
+  const changeNameToJohn = () => {
+    mySelf.name = "John";
+    mySelf.age = 30;
+    console.log(mySelf);
+    setMySelf(mySelf);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12" style={{ textAlign: 'center', padding: 30 }}>
+          <p>My name is {mySelf.name} and I am {mySelf.age} years of age.</p>
+          <button className="btn btn-primary" onClick={changeNameToJohn}>Change My Name To John</button>
+        </div>
+      </div>
     </div>
   );
 }
